@@ -11,6 +11,22 @@
   PDF
 </a>
 {{ end }}
+{{ with $.Params.bib }}
+{{ with $.Params.short_name}}
+<a class="btn btn-primary btn-outline{{ if $is_list }} btn-xs{{end}}"
+onclick="
+    var div = document.getElementById('{{.}}_bib');
+    if (div.style.display !== 'none') {
+        div.style.display = 'none';
+    }
+    else {
+        div.style.display = 'block';
+    }
+">
+  BibTeX
+</a>
+{{ end }}
+{{ end }}
 {{ with $.Params.url_slides }}
 <a class="btn btn-primary btn-outline{{ if $is_list }} btn-xs{{end}}" href="{{ . | absURL }}">
   Slides
@@ -40,4 +56,10 @@
 <a class="btn btn-primary btn-outline{{ if $is_list }} btn-xs{{end}}" href="{{ .url | absURL }}">
   {{ .name }}
 </a>
+{{ end }}
+
+{{ with $.Params.bib }}
+<pre id = "{{$.Params.short_name}}_bib", style="display:none">
+{{. | markdownify}}
+</pre>
 {{ end }}

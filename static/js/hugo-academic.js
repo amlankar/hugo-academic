@@ -25,7 +25,7 @@
       // The numerical parameter specifies the time (ms) taken to scroll to the specified hash.
       $('html, body').animate({
         scrollTop: $(hash).offset().top - navbarHeight
-      }, 800, function () {
+      }, 400, function () {
         // Add hash (#) to URL once finished scrolling to hash position
         if (hash == "#top"){
           window.location.hash = ""
@@ -45,7 +45,7 @@
 
     $('html, body').animate({
       'scrollTop': 0
-    }, 800, function(){
+    }, 400, function(){
       window.location.hash = ""
     });
   });

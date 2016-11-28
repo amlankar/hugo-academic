@@ -2,12 +2,15 @@
 abstract = ""
 abstract_short = ""
 authors = [""]
+title = ""
+short_name = ""
 image = ""
 image_preview = ""
 math = false
 publication = ""
 publication_short = ""
 selected = false
+bib = ""
 url_pdf = ""
 url_code = ""
 url_dataset = ""

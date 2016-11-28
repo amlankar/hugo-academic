@@ -22,4 +22,3 @@ detailed_list = false
 str_all = "More Publications"
 
 +++
-
