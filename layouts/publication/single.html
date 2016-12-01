@@ -4,16 +4,26 @@
 
   <div class="pub" itemscope itemtype="http://schema.org/CreativeWork">
     <div class="pub-title">
-      <h1 itemprop="name">{{ .Title }}</h1>
-      <span class="pub-authors" itemprop="author">
-                {{ with .Params.authors }}
-                {{ delimit . ", " }}
-                {{ end }}
-            </span>
+      <table style="margin: 0 auto;">
+        <tr>
+          {{$len := len .Params.affiliations}}
+          {{range .Params.affiliations}}
+          <td style = "vertical-align: middle; background-color: rgba(255, 255, 255, 1)"><img src = "/img/{{.}}" width='30%'></td>
+          {{end}}
+        </tr>
+      </table>
+
+      <h1 itemprop="name" style="text-align: center">{{ .Title }}</h1>
+
+      <p class="pub-authors" itemprop="author" align="center">
+        {{ with .Params.authors }}
+        {{ delimit . ", " }}
+        {{ end }}
+      </p><br>
       <span class="pull-right">
                 {{ partial "share.html" . }}
-            </span>
-    </div>
+      </span>
+      </div>
 
     {{ if .Params.image }}
     <img src="{{ $.Site.BaseURL }}/img/{{ .Params.image }}" class="pub-banner" itemprop="image">
