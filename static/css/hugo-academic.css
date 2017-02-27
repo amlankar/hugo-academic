@@ -51,7 +51,7 @@ body {
 /* Body text */
 p {
   margin-top: 0;
-  margin-bottom: 1rem;  
+  margin-bottom: 1rem;
 }
 
 /* Lists */
@@ -439,7 +439,7 @@ ul.share li:hover .fa {
 }
 
 .pub .pub-authors {
-  font-style: italic;
+  /*font-style: italic;*/
   line-height: 30px; /* Match share bar line height. */
 }
 
@@ -458,13 +458,13 @@ ul.share li:hover .fa {
 .pub-list-item .pub-authors {
   line-height: normal;
   font-style: normal;
-  font-size: 1rem;
+  font-size: 80%;
   color: #3170A5;
 }
 
 .pub-list-item .pub-publication {
   color: #090;
-  font-size: 1rem;
+  font-size: 80%;
 }
 
 .pub-list-item .pub-links {
