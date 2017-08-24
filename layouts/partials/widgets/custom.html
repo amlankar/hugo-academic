@@ -7,11 +7,13 @@
   class="home-section">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-4 section-heading">
-        <h2>{{ title $page.Title }}</h2>
+      <div class="col-xs-0 col-md-4 section-heading"></div>
+      <div class="col-xs-12 col-md-8 section-heading">
+        <h1>{{ title $page.Title }}</h1>
         {{ with $page.Params.subtitle }}<p>{{ . | markdownify }}</p>{{ end }}
       </div>
-      <div class="col-xs-12 col-md-8">
+      <div class="col-xs-0 col-md-1"></div>
+      <div class="col-xs-12 col-md-11">
         {{ $page.Content }}
       </div>
     </div>
