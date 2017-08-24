@@ -41,7 +41,7 @@
 
         {{ $page.Content }}
 
-        <div class="row">
+        <!-- <div class="row">
 
           {{ with $page.Params.interests }}
           <div class="col-sm-5">
@@ -69,12 +69,35 @@
               {{ end }}
             </ul>
           </div>
-          {{ end }}
-
+          {{ end }} -->
         </div>
 
       </div>
+
+      <div class = "row">
+        {{ with $page.Params.education }}
+        <table class = 'about-edu'>
+            <tr>
+              {{$len := len .courses}}
+              {{range .courses}}
+              <td align="center" width="{{div 100 $len}}%" style = "vertical-align: middle; background-color: rgba(255, 255, 255, 1)">
+                <a href="{{.link}}"><img src = "/img/{{.img}}" width="40%"></a>
+              </td>
+              {{end}}
+            </tr>
+
+            <tr>
+                {{$len := len .courses}}
+                {{range .courses}}
+                <td align="center" style = "vertical-align: middle; background-color: rgba(255, 255, 255, 1)">{{.course}}<br>{{.institution}}<br>{{.year}}</td>
+                {{end}}
+          </tr>
+              
+          </table>
+        {{ end }}
+      </div>
+    
+    
     </div>
 
-  </div>
 </section>
