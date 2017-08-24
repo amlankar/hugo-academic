@@ -9,8 +9,46 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-xs-12 col-md-4 section-heading">
-        <h2>{{ with $page.Title }}{{ . | markdownify }}{{ end }}</h2>
+      <!-- Add title -->
+      <div class="col-xs-0 col-md-4"></div>
+      <div class="col-xs-12 col-md-8">  
+        <h1>{{ with $page.Title }}{{ . | markdownify }}{{ end }}</h1>
+      </div>  
+      
+      {{ with $page.Content }}<p>{{ . | markdownify }}</p>{{ end }}
+
+      {{ if $page.Params.detailed_list }}
+        {{ range first $page.Params.count (where $.Data.Pages "Type" "publication") }}    
+          <div class="row">
+            <div class="col-xs-0 col-md-4">
+              <!-- Publication image -->
+              {{ partial "publication_image" . }}
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <!-- Publication content -->
+              {{ partial "publication_li_detailed" . }}
+            </div>
+          </div>
+        {{ end }}
+      
+      {{ else }}
+        <ul class="fa-ul">
+          {{ range first $page.Params.count (where $.Data.Pages "Type" "publication") }} 
+            <div class="row">
+              <div class="col-xs-0 col-md-4">
+                <!-- Publication image -->
+                {{ partial "publication_image" . }}              
+              </div>
+              <div class="col-xs-12 col-md-8">
+                <!-- Publication content -->
+                {{ partial "publication_li_simple" . }}
+              </div>
+            </div>
+          {{ end }}          
+        </ul>
+      {{ end }}
+
+      <div class="col-xs-12 col-md-12 section-heading">
         {{ with $page.Params.subtitle }}<p>{{ . | markdownify }}</p>{{ end }}
         {{ if gt $pubs_len $page.Params.count }}
         <p class="view-all">
@@ -21,21 +59,7 @@
         </p>
         {{ end }}
       </div>
-      <div class="col-xs-12 col-md-8">
-        {{ with $page.Content }}<p>{{ . | markdownify }}</p>{{ end }}
-
-        {{ if $page.Params.detailed_list }}
-        {{ range first $page.Params.count (where $.Data.Pages "Type" "publication") }}
-        {{ partial "publication_li_detailed" . }}
-        {{ end }}
-        {{ else }}
-        <ul class="fa-ul">
-          {{ range first $page.Params.count (where $.Data.Pages "Type" "publication") }}
-          {{ partial "publication_li_simple" . }}
-          {{ end }}
-        </ul>
-        {{ end }}
-      </div>
+    
     </div>
 
   </div>

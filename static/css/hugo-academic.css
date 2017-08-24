@@ -29,7 +29,7 @@ html {
 }
 @media screen and (min-width: 58rem) {
   html {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
@@ -420,6 +420,12 @@ ul.share li:hover .fa {
 /*************************************************
  *  Publications
  **************************************************/
+
+.pub-img{
+  width:75%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .pub-icon {
   color: #03396c;
