@@ -81,7 +81,7 @@
               {{$len := len .courses}}
               {{range .courses}}
               <td align="center" width="{{div 100 $len}}%" style = "vertical-align: middle; background-color: rgba(255, 255, 255, 1)">
-                <a href="{{.link}}"><img src = "/img/{{.img}}" width="40%"></a>
+                <a href="{{.link}}"><img src = "{{ $.Site.BaseURL }}/img/{{.img}}" width="40%"></a>
               </td>
               {{end}}
             </tr>
